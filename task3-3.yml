@@ -1,6 +1,6 @@
 - name: Update DNS and NTP
   hosts: all
-  become: yes
+  become: True
   vars:
     resolf_conf_path: /etc/resolv.conf
     chrony_conf_path: /etc/chrony.conf
