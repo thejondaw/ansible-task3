@@ -1,4 +1,6 @@
-### Ansible - Task #3
+## Ansible - Task #3:
+
+---
 
 > 1. Create 5x CentOS 7 VMs: "centos1, centos2, centos3, centos4 and centos5"
 
@@ -19,3 +21,5 @@
 > time2.google.com
 
 > **Use variables for all the above values.**
+
+---
