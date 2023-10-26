@@ -1,5 +1,5 @@
 - name: Update DNS and NTP
-  hosts: localhost
+  hosts: all
   become: yes
   vars:
     resolf_conf_path: /etc/resolv.conf
