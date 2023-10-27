@@ -1,0 +1,33 @@
+- name: Update DNS and NTP
+  hosts: centos
+  become: True
+  vars:
+    resolv_conf_template: resolv.conf.j2
+    chrony_conf_template: chrony.conf.j2
+
+    hosts_conf_path: /etc/hosts
+    resolf_conf_path: /etc/resolv.conf
+    chrony_conf_path: /etc/chrony.conf
+    
+    dns_servers:
+      - 8.8.8.8
+      - 8.8.4.4
+    ntp_servers:
+      - time1.google.com
+      - time2.google.com
+
+  tasks:
+    - name: Update {{ hosts_conf_path }}
+      lineinfile:
+        path: "{{ hosts_conf_path }}"
+        line: "{{ ansible_host }} {{ inventory_hostname }}"
+
+    - name: Update {{ resolf_conf_path }}
+      template:
+        src: "{{ resolv_conf_template }}"
+        dest: "{{ resolf_conf_path }}"
+
+    - name: Update {{ chrony_conf_path }}
+      template:
+        src: "{{ chrony_conf_template }}"
+        dest: "{{ chrony_conf_path }}"
