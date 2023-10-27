@@ -1,3 +1,4 @@
+---
 - name: Update DNS and NTP
   hosts: centos
   become: True
